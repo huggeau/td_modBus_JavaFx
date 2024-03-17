@@ -4,7 +4,7 @@
  * TODO To change the template for this generated file go to
  * Window - Preferences - Java - Code Style - Code Templates
  */
-package fr.btsciel.td_modbus_javafx.clavier;
+package fr.btsciel.td_modbus_javafx.helper.crc16.clavier;
 
 /**
  * @author MOULAI Philippe <br>

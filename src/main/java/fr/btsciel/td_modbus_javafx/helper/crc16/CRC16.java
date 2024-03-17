@@ -1,22 +1,11 @@
-package fr.btsciel.td_modbus_javafx.crc16;
+package fr.btsciel.td_modbus_javafx.helper.crc16;
 
-import fr.btsciel.td_modbus_javafx.clavier.In;
+import fr.btsciel.td_modbus_javafx.helper.crc16.clavier.In;
 
 public class CRC16 {
-    public static int stdPoly = 0xA001; // polynome arbitraire du crc16
-    public static int intialValue = 0xffff;
-
-    public static void main(String[] args) {
-        String saisie;
-        String regex = "([0-9]|[a-zA-Z])([0-9]|[a-zA-Z])";
-
-//        mettre un if avec la verification du regex
-        System.out.print("veuillez écrire votre trame d'octets: ");
-        saisie = In.readString();
-
-        System.out.println("le CRC= " + calculCrc16(formatage(saisie), intialValue, stdPoly));
-
+    public CRC16() {
     }
+
     public static int calculCrc16(byte[] octets, int valeurInitiale, int polynomeArbitraire){
         int crc = valeurInitiale;
         int nb_octet_traite = 0;

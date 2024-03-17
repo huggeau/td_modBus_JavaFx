@@ -15,6 +15,7 @@ public class HelloApplication extends Application {
         stage.setTitle("ModBus");
         stage.setScene(scene);
         stage.show();
+        stage.setOnCloseRequest(event -> System.exit(0));
     }
 
     public static void main(String[] args) {
