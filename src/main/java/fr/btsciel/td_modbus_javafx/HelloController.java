@@ -1,39 +1,38 @@
 package fr.btsciel.td_modbus_javafx;
 
-import fr.btsciel.td_modbus_javafx.helper.crc16.clavier.In;
-import javafx.fxml.FXML;
+import fr.btsciel.td_modbus_javafx.helper.clavier.In;
+import fr.btsciel.td_modbus_javafx.helper.crc16.CRC16;
 import javafx.fxml.Initializable;
+import javafx.scene.Cursor;
 import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.LineChart;
-import javafx.scene.chart.NumberAxis;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
+import javafx.scene.chart.XYChart;
+
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import fr.btsciel.td_modbus_javafx.helper.crc16.CRC16;
-
 
 public class HelloController implements Initializable {
-
     public CategoryAxis xAxis;
     public javafx.scene.chart.NumberAxis yAxis;
-    public Button stopBttn;
-    public LineChart lineCharts;
+    public LineChart<String, Number> lineCharts;
 
+    XYChart.Series series;
     private CRC16 crc16;
     public static int stdPoly = 0xA001; // polynome arbitraire du crc16
     public static int intialValue = 0xffff;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        stopBttn.setOnAction(event -> stopBttn());
+        series = new XYChart.Series<>();
+        series.setName("ModBus");
+        lineCharts.getData().add(series);
+        lineCharts.setAnimated(false);
+        lineCharts.setCreateSymbols(false);
+        lineCharts.setCursor(Cursor.DEFAULT);
 
-
-    }
-
-    private void stopBttn() {
+        printResult();
 
     }
     private void printResult(){

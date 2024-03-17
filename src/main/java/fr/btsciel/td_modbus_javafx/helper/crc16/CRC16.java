@@ -1,7 +1,5 @@
 package fr.btsciel.td_modbus_javafx.helper.crc16;
 
-import fr.btsciel.td_modbus_javafx.helper.crc16.clavier.In;
-
 public class CRC16 {
     public CRC16() {
     }
@@ -25,7 +23,6 @@ public class CRC16 {
         return crc;
     }
     public static byte[] hexStringByteEnArray(String message){
-
         int len = message.length();
         byte[] data = new byte[len/2];
         for (int i = 0; i < len; i+=2) {
